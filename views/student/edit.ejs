@@ -1,0 +1,30 @@
+<h1>Chỉnh sửa sinh viên</h1>
+<form action="/update" method="POST" class="form-student-edit">
+  <input type="hidden" name="id" value="<%= student.id %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Tên của bạn" required name="name" value="<%= student.name %>">
+        </div>
+        <div class="form-group">
+          <label>Birthday</label>
+          <input type="date" class="form-control" placeholder="Ngày sinh của bạn" required name="birthday" value="<%= student.birthday %>">
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="">--Choose--</option>
+            <option value="Male" <%= student.gender === 'Male' ? 'selected':  ''%>>Male</option>
+            <option value="Female" <%= student.gender === 'Female' ? 'selected':  ''%>>Female</option>
+            <option value="Prefer not to say" <%= student.gender === 'Prefer not to say' ? 'selected':  ''%>>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" type="submit">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
