@@ -71,7 +71,6 @@ class subjectController {
     static edit = async (req, res) => {
         try {
             const subject = await subjectModel.find(req.params.id);
-            console.log(subject);
             res.render('subject/edit', {
                 subject: subject,
                 module: this.module,

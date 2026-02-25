@@ -71,7 +71,6 @@ class studentController {
     static edit = async (req, res) => {
         try {
             const student = await studentModel.find(req.params.id);
-            console.log(student);
             res.render('student/edit', {
                 student: student,
                 module: this.module,
@@ -85,12 +84,11 @@ class studentController {
         try {
             const id = req.body.id;
 
-            await studentModel.fix(id, {
+            const student = await studentModel.fix(id, {
                 name: req.body.name,
                 birthday: req.body.birthday,
                 gender: req.body.gender
             });
-
             // Update session message for success
             req.session.message_success = `Edit student ${req.body.name} successful!`;
             console.log(req.session.message_success)
